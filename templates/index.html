@@ -3,34 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movie Recommendations</title>
-    <link rel="stylesheet" href="/static/css/style.css">
+    <title>Activity Recognition</title>
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>Movie Recommendation</h1>
-            <p>Get recommendations based on your favorite movies</p>
+            <h1>Human Activity Recognition</h1>
+            <p>Select an activity to analyze or let us detect automatically</p>
         </header>
 
-        <div class="search-box">
-            <input type="text" id="movie-input" placeholder="Enter a movie you like...">
-            <button id="search-btn">Search</button>
-        </div>
+        <main>
+            <div class="control-panel">
+                <div class="mode-selector">
+                    <button id="auto-mode" class="active">Auto Detect</button>
+                    <button id="manual-mode">Manual Select</button>
+                </div>
 
-        <div class="results" id="results">
-            <div class="no-results">
-                <p>Search for a movie to get recommendations</p>
-                <p>Try: "The Shawshank Redemption", "Inception", "The Dark Knight"</p>
+                <div class="activity-selector hidden">
+                    <h2>Select Activity</h2>
+                    <div class="activity-grid">
+                        <div class="activity-option" data-activity="walking">
+                            <i class="fas fa-walking"></i>
+                            <span>Walking</span>
+                        </div>
+                        <div class="activity-option" data-activity="running">
+                            <i class="fas fa-running"></i>
+                            <span>Running</span>
+                        </div>
+                        <div class="activity-option" data-activity="jumping">
+                            <i class="fas fa-frog"></i>
+                            <span>Jumping</span>
+                        </div>
+                        <div class="activity-option" data-activity="sitting">
+                            <i class="fas fa-chair"></i>
+                            <span>Sitting</span>
+                        </div>
+                        <div class="activity-option" data-activity="standing">
+                            <i class="fas fa-user"></i>
+                            <span>Standing</span>
+                        </div>
+                        <div class="activity-option" data-activity="cycling">
+                            <i class="fas fa-bicycle"></i>
+                            <span>Cycling</span>
+                        </div>
+                    </div>
+                </div>
+
+                <button id="analyze-btn" class="analyze-btn">
+                    <i class="fas fa-play"></i> Analyze Activity
+                </button>
             </div>
-        </div>
 
-        <div class="popular-movies">
-            <h2>Popular Movies</h2>
-            <div class="popular-list" id="popular-movies"></div>
-        </div>
+            <div class="result-section hidden">
+                <h2>Analysis Results</h2>
+                <div class="result-card">
+                    <div class="activity-icon">
+                        <i id="result-icon" class="fas fa-question"></i>
+                    </div>
+                    <div class="activity-info">
+                        <h3 id="activity-name">Unknown Activity</h3>
+                        <p id="activity-confidence">Confidence: --%</p>
+                        <p id="activity-description">Select or detect an activity to see results</p>
+                    </div>
+                </div>
+                <div class="suggestions">
+                    <h3>Suggestions</h3>
+                    <ul id="suggestions-list">
+                        <!-- Suggestions will be added here by JavaScript -->
+                    </ul>
+                </div>
+                <button id="reset-btn" class="reset-btn">
+                    <i class="fas fa-redo"></i> Reset
+                </button>
+            </div>
+        </main>
+
+        <footer>
+            <p>Human Activity Recognition System © 2023</p>
+        </footer>
     </div>
 
-    <script src="/static/js/script.js"></script>
+    <script src="static/js/script.js"></script>
 </body>
 </html>
